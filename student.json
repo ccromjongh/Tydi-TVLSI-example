@@ -1,0 +1,23 @@
+{
+  "student_number": "S123456789",
+  "name": "John Doe",
+  "birthdate": "2000-05-15",
+  "study_start": "2021-05-15",
+  "study_end": null,
+  "study": "Computer Science",
+  "email": "john.doe@example.com",
+  "exams": [
+    {
+      "course_code": "CS101",
+      "course_name": "Introduction to Computer Science",
+      "exam_date": "2023-12-10",
+      "grade": 80
+    },
+    {
+      "course_code": "MATH201",
+      "course_name": "Calculus",
+      "exam_date": "2023-12-15",
+      "grade": 60
+    }
+  ]
+}

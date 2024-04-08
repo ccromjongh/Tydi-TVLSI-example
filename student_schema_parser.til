@@ -1,0 +1,619 @@
+namespace student::schema::parser {
+	type JSONStream<d: dimensionality = 2> = Stream (
+    data: Bits(8),
+    throughput: 4,
+    dimensionality: d,
+    synchronicity: Sync,
+    complexity: 8,
+);
+
+type IntParserStream<d: dimensionality = 2> = Stream (
+    data: Bits(64),
+    throughput: 1,
+    dimensionality: d,
+    synchronicity: Sync,
+    complexity: 2,
+);
+
+type RecordParserStream<d: dimensionality = 2> = Stream (
+    data: Bits(9),
+    throughput: 4,
+    dimensionality: d,
+    synchronicity: Sync,
+    complexity: 8,
+);
+
+type MatcherMatchStream = Stream (
+    data: Bits(1),
+    throughput: 4,
+    dimensionality: 1,
+    synchronicity: Sync,
+    complexity: 8,
+);
+
+type MatcherStrStream = Stream (
+    data: Bits(8),
+    throughput: 4,
+    dimensionality: 1,
+    synchronicity: Sync,
+    complexity: 8,
+);
+
+streamlet string_parser_L1_00 = <
+EPC: positive = 4,
+NESTING_LEVEL: dimensionality = 1,
+
+> (
+    	input: in JSONStream<NESTING_LEVEL+1>,
+	output: out JSONStream<NESTING_LEVEL+1>,
+
+){
+    impl: "./vhdl_dir"
+};
+
+streamlet student_number_matcher_L1_00 = <
+BPC: positive = 4,
+
+> (
+    	input: in MatcherStrStream,
+	output: out MatcherMatchStream,
+
+){
+    impl: "./vhdl_dir"
+};
+
+streamlet key_parser_L1_00 = <
+EPC: positive = 4,
+OUTER_NESTING_LEVEL: dimensionality = 1,
+
+> (
+    	input: in RecordParserStream<OUTER_NESTING_LEVEL+1>,
+	matcher_str: out MatcherStrStream,
+	matcher_match: in MatcherMatchStream,
+	output: out JSONStream<OUTER_NESTING_LEVEL+1>,
+
+){
+    impl: "./vhdl_dir"
+};
+
+streamlet string_parser_L1_01 = <
+EPC: positive = 4,
+NESTING_LEVEL: dimensionality = 1,
+
+> (
+    	input: in JSONStream<NESTING_LEVEL+1>,
+	output: out JSONStream<NESTING_LEVEL+1>,
+
+){
+    impl: "./vhdl_dir"
+};
+
+streamlet name_matcher_L1_00 = <
+BPC: positive = 4,
+
+> (
+    	input: in MatcherStrStream,
+	output: out MatcherMatchStream,
+
+){
+    impl: "./vhdl_dir"
+};
+
+streamlet key_parser_L1_01 = <
+EPC: positive = 4,
+OUTER_NESTING_LEVEL: dimensionality = 1,
+
+> (
+    	input: in RecordParserStream<OUTER_NESTING_LEVEL+1>,
+	matcher_str: out MatcherStrStream,
+	matcher_match: in MatcherMatchStream,
+	output: out JSONStream<OUTER_NESTING_LEVEL+1>,
+
+){
+    impl: "./vhdl_dir"
+};
+
+streamlet string_parser_L1_02 = <
+EPC: positive = 4,
+NESTING_LEVEL: dimensionality = 1,
+
+> (
+    	input: in JSONStream<NESTING_LEVEL+1>,
+	output: out JSONStream<NESTING_LEVEL+1>,
+
+){
+    impl: "./vhdl_dir"
+};
+
+streamlet birthdate_matcher_L1_00 = <
+BPC: positive = 4,
+
+> (
+    	input: in MatcherStrStream,
+	output: out MatcherMatchStream,
+
+){
+    impl: "./vhdl_dir"
+};
+
+streamlet key_parser_L1_02 = <
+EPC: positive = 4,
+OUTER_NESTING_LEVEL: dimensionality = 1,
+
+> (
+    	input: in RecordParserStream<OUTER_NESTING_LEVEL+1>,
+	matcher_str: out MatcherStrStream,
+	matcher_match: in MatcherMatchStream,
+	output: out JSONStream<OUTER_NESTING_LEVEL+1>,
+
+){
+    impl: "./vhdl_dir"
+};
+
+streamlet string_parser_L1_03 = <
+EPC: positive = 4,
+NESTING_LEVEL: dimensionality = 1,
+
+> (
+    	input: in JSONStream<NESTING_LEVEL+1>,
+	output: out JSONStream<NESTING_LEVEL+1>,
+
+){
+    impl: "./vhdl_dir"
+};
+
+streamlet study_start_matcher_L1_00 = <
+BPC: positive = 4,
+
+> (
+    	input: in MatcherStrStream,
+	output: out MatcherMatchStream,
+
+){
+    impl: "./vhdl_dir"
+};
+
+streamlet key_parser_L1_03 = <
+EPC: positive = 4,
+OUTER_NESTING_LEVEL: dimensionality = 1,
+
+> (
+    	input: in RecordParserStream<OUTER_NESTING_LEVEL+1>,
+	matcher_str: out MatcherStrStream,
+	matcher_match: in MatcherMatchStream,
+	output: out JSONStream<OUTER_NESTING_LEVEL+1>,
+
+){
+    impl: "./vhdl_dir"
+};
+
+streamlet study_end_matcher_L1_00 = <
+BPC: positive = 4,
+
+> (
+    	input: in MatcherStrStream,
+	output: out MatcherMatchStream,
+
+){
+    impl: "./vhdl_dir"
+};
+
+streamlet key_parser_L1_04 = <
+EPC: positive = 4,
+OUTER_NESTING_LEVEL: dimensionality = 1,
+
+> (
+    	input: in RecordParserStream<OUTER_NESTING_LEVEL+1>,
+	matcher_str: out MatcherStrStream,
+	matcher_match: in MatcherMatchStream,
+	output: out JSONStream<OUTER_NESTING_LEVEL+1>,
+
+){
+    impl: "./vhdl_dir"
+};
+
+streamlet string_parser_L1_04 = <
+EPC: positive = 4,
+NESTING_LEVEL: dimensionality = 1,
+
+> (
+    	input: in JSONStream<NESTING_LEVEL+1>,
+	output: out JSONStream<NESTING_LEVEL+1>,
+
+){
+    impl: "./vhdl_dir"
+};
+
+streamlet study_matcher_L1_00 = <
+BPC: positive = 4,
+
+> (
+    	input: in MatcherStrStream,
+	output: out MatcherMatchStream,
+
+){
+    impl: "./vhdl_dir"
+};
+
+streamlet key_parser_L1_05 = <
+EPC: positive = 4,
+OUTER_NESTING_LEVEL: dimensionality = 1,
+
+> (
+    	input: in RecordParserStream<OUTER_NESTING_LEVEL+1>,
+	matcher_str: out MatcherStrStream,
+	matcher_match: in MatcherMatchStream,
+	output: out JSONStream<OUTER_NESTING_LEVEL+1>,
+
+){
+    impl: "./vhdl_dir"
+};
+
+streamlet string_parser_L1_05 = <
+EPC: positive = 4,
+NESTING_LEVEL: dimensionality = 1,
+
+> (
+    	input: in JSONStream<NESTING_LEVEL+1>,
+	output: out JSONStream<NESTING_LEVEL+1>,
+
+){
+    impl: "./vhdl_dir"
+};
+
+streamlet email_matcher_L1_00 = <
+BPC: positive = 4,
+
+> (
+    	input: in MatcherStrStream,
+	output: out MatcherMatchStream,
+
+){
+    impl: "./vhdl_dir"
+};
+
+streamlet key_parser_L1_06 = <
+EPC: positive = 4,
+OUTER_NESTING_LEVEL: dimensionality = 1,
+
+> (
+    	input: in RecordParserStream<OUTER_NESTING_LEVEL+1>,
+	matcher_str: out MatcherStrStream,
+	matcher_match: in MatcherMatchStream,
+	output: out JSONStream<OUTER_NESTING_LEVEL+1>,
+
+){
+    impl: "./vhdl_dir"
+};
+
+streamlet string_parser_L3_00 = <
+EPC: positive = 4,
+NESTING_LEVEL: dimensionality = 3,
+
+> (
+    	input: in JSONStream<NESTING_LEVEL+1>,
+	output: out JSONStream<NESTING_LEVEL+1>,
+
+){
+    impl: "./vhdl_dir"
+};
+
+streamlet course_code_matcher_L3_00 = <
+BPC: positive = 4,
+
+> (
+    	input: in MatcherStrStream,
+	output: out MatcherMatchStream,
+
+){
+    impl: "./vhdl_dir"
+};
+
+streamlet key_parser_L3_00 = <
+EPC: positive = 4,
+OUTER_NESTING_LEVEL: dimensionality = 3,
+
+> (
+    	input: in RecordParserStream<OUTER_NESTING_LEVEL+1>,
+	matcher_str: out MatcherStrStream,
+	matcher_match: in MatcherMatchStream,
+	output: out JSONStream<OUTER_NESTING_LEVEL+1>,
+
+){
+    impl: "./vhdl_dir"
+};
+
+streamlet string_parser_L3_01 = <
+EPC: positive = 4,
+NESTING_LEVEL: dimensionality = 3,
+
+> (
+    	input: in JSONStream<NESTING_LEVEL+1>,
+	output: out JSONStream<NESTING_LEVEL+1>,
+
+){
+    impl: "./vhdl_dir"
+};
+
+streamlet course_name_matcher_L3_00 = <
+BPC: positive = 4,
+
+> (
+    	input: in MatcherStrStream,
+	output: out MatcherMatchStream,
+
+){
+    impl: "./vhdl_dir"
+};
+
+streamlet key_parser_L3_01 = <
+EPC: positive = 4,
+OUTER_NESTING_LEVEL: dimensionality = 3,
+
+> (
+    	input: in RecordParserStream<OUTER_NESTING_LEVEL+1>,
+	matcher_str: out MatcherStrStream,
+	matcher_match: in MatcherMatchStream,
+	output: out JSONStream<OUTER_NESTING_LEVEL+1>,
+
+){
+    impl: "./vhdl_dir"
+};
+
+streamlet string_parser_L3_02 = <
+EPC: positive = 4,
+NESTING_LEVEL: dimensionality = 3,
+
+> (
+    	input: in JSONStream<NESTING_LEVEL+1>,
+	output: out JSONStream<NESTING_LEVEL+1>,
+
+){
+    impl: "./vhdl_dir"
+};
+
+streamlet exam_date_matcher_L3_00 = <
+BPC: positive = 4,
+
+> (
+    	input: in MatcherStrStream,
+	output: out MatcherMatchStream,
+
+){
+    impl: "./vhdl_dir"
+};
+
+streamlet key_parser_L3_02 = <
+EPC: positive = 4,
+OUTER_NESTING_LEVEL: dimensionality = 3,
+
+> (
+    	input: in RecordParserStream<OUTER_NESTING_LEVEL+1>,
+	matcher_str: out MatcherStrStream,
+	matcher_match: in MatcherMatchStream,
+	output: out JSONStream<OUTER_NESTING_LEVEL+1>,
+
+){
+    impl: "./vhdl_dir"
+};
+
+streamlet int_parser_L4_00 = <
+EPC: positive = 4,
+NESTING_LEVEL: dimensionality = 3,
+BITWIDTH: positive = 64,
+
+> (
+    	input: in JSONStream<NESTING_LEVEL+1>,
+	output: out IntParserStream<NESTING_LEVEL>,
+
+){
+    impl: "./vhdl_dir"
+};
+
+streamlet grade_matcher_L3_00 = <
+BPC: positive = 4,
+
+> (
+    	input: in MatcherStrStream,
+	output: out MatcherMatchStream,
+
+){
+    impl: "./vhdl_dir"
+};
+
+streamlet key_parser_L3_03 = <
+EPC: positive = 4,
+OUTER_NESTING_LEVEL: dimensionality = 3,
+
+> (
+    	input: in RecordParserStream<OUTER_NESTING_LEVEL+1>,
+	matcher_str: out MatcherStrStream,
+	matcher_match: in MatcherMatchStream,
+	output: out JSONStream<OUTER_NESTING_LEVEL+1>,
+
+){
+    impl: "./vhdl_dir"
+};
+
+streamlet record_parser_L3_00 = <
+EPC: positive = 4,
+OUTER_NESTING_LEVEL: dimensionality = 3,
+INNER_NESTING_LEVEL: natural = 0,
+
+> (
+    	input: in JSONStream<OUTER_NESTING_LEVEL>,
+	output: out RecordParserStream<OUTER_NESTING_LEVEL+1>,
+
+){
+    impl: "./vhdl_dir"
+};
+
+streamlet array_parser_L2_00 = <
+EPC: positive = 4,
+OUTER_NESTING_LEVEL: dimensionality = 2,
+INNER_NESTING_LEVEL: natural = 1,
+
+> (
+    	input: in JSONStream<OUTER_NESTING_LEVEL>,
+	output: out JSONStream<OUTER_NESTING_LEVEL+1>,
+
+){
+    impl: "./vhdl_dir"
+};
+
+streamlet exams_matcher_L1_00 = <
+BPC: positive = 4,
+
+> (
+    	input: in MatcherStrStream,
+	output: out MatcherMatchStream,
+
+){
+    impl: "./vhdl_dir"
+};
+
+streamlet key_parser_L1_07 = <
+EPC: positive = 4,
+OUTER_NESTING_LEVEL: dimensionality = 1,
+
+> (
+    	input: in RecordParserStream<OUTER_NESTING_LEVEL+1>,
+	matcher_str: out MatcherStrStream,
+	matcher_match: in MatcherMatchStream,
+	output: out JSONStream<OUTER_NESTING_LEVEL+1>,
+
+){
+    impl: "./vhdl_dir"
+};
+
+streamlet record_parser_L1_00 = <
+EPC: positive = 4,
+OUTER_NESTING_LEVEL: dimensionality = 1,
+INNER_NESTING_LEVEL: natural = 2,
+
+> (
+    	input: in JSONStream<OUTER_NESTING_LEVEL>,
+	output: out RecordParserStream<OUTER_NESTING_LEVEL+1>,
+
+){
+    impl: "./vhdl_dir"
+};
+
+streamlet top =  (
+    	input: in JSONStream<1>,
+	output_string_parser_L1_00_inst: out JSONStream<2>,
+	output_string_parser_L1_01_inst: out JSONStream<2>,
+	output_string_parser_L1_02_inst: out JSONStream<2>,
+	output_string_parser_L1_03_inst: out JSONStream<2>,
+	output_key_parser_L1_04_inst: out JSONStream<2>,
+	output_string_parser_L1_04_inst: out JSONStream<2>,
+	output_string_parser_L1_05_inst: out JSONStream<2>,
+	output_string_parser_L3_00_inst: out JSONStream<4>,
+	output_string_parser_L3_01_inst: out JSONStream<4>,
+	output_string_parser_L3_02_inst: out JSONStream<4>,
+	output_int_parser_L4_00_inst: out IntParserStream<3>,
+
+){
+    impl: {
+        string_parser_L1_00_inst = string_parser_L1_00;
+student_number_matcher_L1_00_inst = student_number_matcher_L1_00;
+key_parser_L1_00_inst = key_parser_L1_00;
+string_parser_L1_01_inst = string_parser_L1_01;
+name_matcher_L1_00_inst = name_matcher_L1_00;
+key_parser_L1_01_inst = key_parser_L1_01;
+string_parser_L1_02_inst = string_parser_L1_02;
+birthdate_matcher_L1_00_inst = birthdate_matcher_L1_00;
+key_parser_L1_02_inst = key_parser_L1_02;
+string_parser_L1_03_inst = string_parser_L1_03;
+study_start_matcher_L1_00_inst = study_start_matcher_L1_00;
+key_parser_L1_03_inst = key_parser_L1_03;
+study_end_matcher_L1_00_inst = study_end_matcher_L1_00;
+key_parser_L1_04_inst = key_parser_L1_04;
+string_parser_L1_04_inst = string_parser_L1_04;
+study_matcher_L1_00_inst = study_matcher_L1_00;
+key_parser_L1_05_inst = key_parser_L1_05;
+string_parser_L1_05_inst = string_parser_L1_05;
+email_matcher_L1_00_inst = email_matcher_L1_00;
+key_parser_L1_06_inst = key_parser_L1_06;
+string_parser_L3_00_inst = string_parser_L3_00;
+course_code_matcher_L3_00_inst = course_code_matcher_L3_00;
+key_parser_L3_00_inst = key_parser_L3_00;
+string_parser_L3_01_inst = string_parser_L3_01;
+course_name_matcher_L3_00_inst = course_name_matcher_L3_00;
+key_parser_L3_01_inst = key_parser_L3_01;
+string_parser_L3_02_inst = string_parser_L3_02;
+exam_date_matcher_L3_00_inst = exam_date_matcher_L3_00;
+key_parser_L3_02_inst = key_parser_L3_02;
+int_parser_L4_00_inst = int_parser_L4_00;
+grade_matcher_L3_00_inst = grade_matcher_L3_00;
+key_parser_L3_03_inst = key_parser_L3_03;
+record_parser_L3_00_inst = record_parser_L3_00;
+array_parser_L2_00_inst = array_parser_L2_00;
+exams_matcher_L1_00_inst = exams_matcher_L1_00;
+key_parser_L1_07_inst = key_parser_L1_07;
+record_parser_L1_00_inst = record_parser_L1_00;
+
+input -- record_parser_L1_00_inst.input;
+student_number_matcher_L1_00_inst.output -- key_parser_L1_00_inst.matcher_match;
+key_parser_L1_00_inst.matcher_str -- student_number_matcher_L1_00_inst.input;
+key_parser_L1_00_inst.output -- string_parser_L1_00_inst.input;
+name_matcher_L1_00_inst.output -- key_parser_L1_01_inst.matcher_match;
+key_parser_L1_01_inst.matcher_str -- name_matcher_L1_00_inst.input;
+key_parser_L1_01_inst.output -- string_parser_L1_01_inst.input;
+birthdate_matcher_L1_00_inst.output -- key_parser_L1_02_inst.matcher_match;
+key_parser_L1_02_inst.matcher_str -- birthdate_matcher_L1_00_inst.input;
+key_parser_L1_02_inst.output -- string_parser_L1_02_inst.input;
+study_start_matcher_L1_00_inst.output -- key_parser_L1_03_inst.matcher_match;
+key_parser_L1_03_inst.matcher_str -- study_start_matcher_L1_00_inst.input;
+key_parser_L1_03_inst.output -- string_parser_L1_03_inst.input;
+study_end_matcher_L1_00_inst.output -- key_parser_L1_04_inst.matcher_match;
+key_parser_L1_04_inst.matcher_str -- study_end_matcher_L1_00_inst.input;
+study_matcher_L1_00_inst.output -- key_parser_L1_05_inst.matcher_match;
+key_parser_L1_05_inst.matcher_str -- study_matcher_L1_00_inst.input;
+key_parser_L1_05_inst.output -- string_parser_L1_04_inst.input;
+email_matcher_L1_00_inst.output -- key_parser_L1_06_inst.matcher_match;
+key_parser_L1_06_inst.matcher_str -- email_matcher_L1_00_inst.input;
+key_parser_L1_06_inst.output -- string_parser_L1_05_inst.input;
+course_code_matcher_L3_00_inst.output -- key_parser_L3_00_inst.matcher_match;
+key_parser_L3_00_inst.matcher_str -- course_code_matcher_L3_00_inst.input;
+key_parser_L3_00_inst.output -- string_parser_L3_00_inst.input;
+course_name_matcher_L3_00_inst.output -- key_parser_L3_01_inst.matcher_match;
+key_parser_L3_01_inst.matcher_str -- course_name_matcher_L3_00_inst.input;
+key_parser_L3_01_inst.output -- string_parser_L3_01_inst.input;
+exam_date_matcher_L3_00_inst.output -- key_parser_L3_02_inst.matcher_match;
+key_parser_L3_02_inst.matcher_str -- exam_date_matcher_L3_00_inst.input;
+key_parser_L3_02_inst.output -- string_parser_L3_02_inst.input;
+grade_matcher_L3_00_inst.output -- key_parser_L3_03_inst.matcher_match;
+key_parser_L3_03_inst.matcher_str -- grade_matcher_L3_00_inst.input;
+key_parser_L3_03_inst.output -- int_parser_L4_00_inst.input;
+record_parser_L3_00_inst.output -- key_parser_L3_00_inst.input;
+record_parser_L3_00_inst.output -- key_parser_L3_01_inst.input;
+record_parser_L3_00_inst.output -- key_parser_L3_02_inst.input;
+record_parser_L3_00_inst.output -- key_parser_L3_03_inst.input;
+array_parser_L2_00_inst.output -- record_parser_L3_00_inst.input;
+exams_matcher_L1_00_inst.output -- key_parser_L1_07_inst.matcher_match;
+key_parser_L1_07_inst.matcher_str -- exams_matcher_L1_00_inst.input;
+key_parser_L1_07_inst.output -- array_parser_L2_00_inst.input;
+record_parser_L1_00_inst.output -- key_parser_L1_00_inst.input;
+record_parser_L1_00_inst.output -- key_parser_L1_01_inst.input;
+record_parser_L1_00_inst.output -- key_parser_L1_02_inst.input;
+record_parser_L1_00_inst.output -- key_parser_L1_03_inst.input;
+record_parser_L1_00_inst.output -- key_parser_L1_04_inst.input;
+record_parser_L1_00_inst.output -- key_parser_L1_05_inst.input;
+record_parser_L1_00_inst.output -- key_parser_L1_06_inst.input;
+record_parser_L1_00_inst.output -- key_parser_L1_07_inst.input;
+string_parser_L1_00_inst.output -- output_string_parser_L1_00_inst;
+string_parser_L1_01_inst.output -- output_string_parser_L1_01_inst;
+string_parser_L1_02_inst.output -- output_string_parser_L1_02_inst;
+string_parser_L1_03_inst.output -- output_string_parser_L1_03_inst;
+key_parser_L1_04_inst.output -- output_key_parser_L1_04_inst;
+string_parser_L1_04_inst.output -- output_string_parser_L1_04_inst;
+string_parser_L1_05_inst.output -- output_string_parser_L1_05_inst;
+string_parser_L3_00_inst.output -- output_string_parser_L3_00_inst;
+string_parser_L3_01_inst.output -- output_string_parser_L3_01_inst;
+string_parser_L3_02_inst.output -- output_string_parser_L3_02_inst;
+int_parser_L4_00_inst.output -- output_int_parser_L4_00_inst;
+
+    }
+};
+}
