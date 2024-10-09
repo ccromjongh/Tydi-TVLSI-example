@@ -1,4 +1,5 @@
 output
 vhdl_dir
+.idea
 
 *.anno.json

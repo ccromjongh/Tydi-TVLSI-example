@@ -7,4 +7,4 @@ top_level_implementation_package = "example"
 sugaring = ["student_schema_parser:top_impl"]
 
 [files]
-tydi_src = ["./std.td", "./example.td", "./student_schema_parser.td", "./snappy.td"]
+tydi_src = ["./std.td", "./example.td", "./output/student_schema_parser/src/student_schema_parser.td", "./snappy.td"]

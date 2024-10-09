@@ -17,12 +17,10 @@ Then, once inside the container, run
 cd tvlsi-example
 make
 # or
+json_hierachy -i student.json --parser-name "student_schema_parser"
 tydi-lang-complier -c ./tydi_example_project.toml
 tl2chisel output output/json_IR.json
 scala-cli output/json_IR_generation_stub.scala output/json_IR_main.scala StudentFilterImpl.scala DecompressorWrap.scala
 ```
 
 You can ignore any errors about unused variables. The Verilog code will be printed and saved in `output/example.v`.
-
-> **Note:**  
-> The updates to JSON-TIL have not yet been incorporated in the Tydi-tools package and therefore the compiled Tydi-lang/Tydi-IR files are given.
