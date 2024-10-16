@@ -71,6 +71,8 @@ impl TydiDemoTop of TydiDemoTop_Interface {
     instance similarity_encoder(SimilarityEncoderImpl);
 
     input => decompressor.co;
+    // There is a dimensionality mismatch here
+    // Also one uses Byte_t where the other uses Byte because they are from different packages.
     decompressor.de => json_parser.input;
 
     json_parser.output_string_parser_L1_00_inst => student_filter.input_string_parser_L1_00_inst;
