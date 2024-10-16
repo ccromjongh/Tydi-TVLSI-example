@@ -35,17 +35,17 @@ Group Student {
 StudentStream = Stream(Student, t=1.0, d=1);
 
 streamlet StudentFilterInterface {
-    input_string_parser_L1_00_inst: student_schema_parser.t<2>.JSONStream in;
-    input_string_parser_L1_01_inst: student_schema_parser.t<2>.JSONStream in;
-    input_string_parser_L1_02_inst: student_schema_parser.t<2>.JSONStream in;
-    input_string_parser_L1_03_inst: student_schema_parser.t<2>.JSONStream in;
-    input_key_parser_L2_04_inst: student_schema_parser.t<2>.JSONStream in;
-    input_string_parser_L1_04_inst: student_schema_parser.t<2>.JSONStream in;
-    input_string_parser_L1_05_inst: student_schema_parser.t<2>.JSONStream in;
-    input_string_parser_L3_00_inst: student_schema_parser.t<4>.JSONStream in;
-    input_string_parser_L3_01_inst: student_schema_parser.t<4>.JSONStream in;
-    input_string_parser_L3_02_inst: student_schema_parser.t<4>.JSONStream in;
-    input_int_parser_L4_00_inst: student_schema_parser.t<3>.IntParserStream in;
+    input_string_parser_L1_00_inst: student_schema_parser.t<3>.JSONStream in;
+    input_string_parser_L1_01_inst: student_schema_parser.t<3>.JSONStream in;
+    input_string_parser_L1_02_inst: student_schema_parser.t<3>.JSONStream in;
+    input_string_parser_L1_03_inst: student_schema_parser.t<3>.JSONStream in;
+    input_key_parser_L2_04_inst: student_schema_parser.t<3>.JSONStream in;
+    input_string_parser_L1_04_inst: student_schema_parser.t<3>.JSONStream in;
+    input_string_parser_L1_05_inst: student_schema_parser.t<3>.JSONStream in;
+    input_string_parser_L3_00_inst: student_schema_parser.t<5>.JSONStream in;
+    input_string_parser_L3_01_inst: student_schema_parser.t<5>.JSONStream in;
+    input_string_parser_L3_02_inst: student_schema_parser.t<5>.JSONStream in;
+    input_int_parser_L4_00_inst: student_schema_parser.t<4>.IntParserStream in;
 
     output: StudentStream out;
 }
