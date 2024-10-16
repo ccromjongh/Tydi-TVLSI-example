@@ -11,23 +11,24 @@ streamlet TydiDemoTop_Interface {
 
 Char = Bit(8);
 n = 4.0;
-String = Stream(Char, t=n, d=1, c=8);
+// Avoid collision with Java's String type when compiling Chisel
+String_t = Stream(Char, t=n, d=1, c=8);
 
 Group Exam {
-    course_code: String;
-    course_name: String;
-    exam_date: String;
+    course_code: String_t;
+    course_name: String_t;
+    exam_date: String_t;
     grade: Bit(7);
 }
 
 Group Student {
-    student_number: String;
-    name: String;
-    birthdate: String;
-    study_start: String;
-    study_end: String;
-    study: String;
-    email: String;
+    student_number: String_t;
+    name: String_t;
+    birthdate: String_t;
+    study_start: String_t;
+    study_end: String_t;
+    study: String_t;
+    email: String_t;
     exams: Stream(Exam, t=1.0, d=1);
 }
 

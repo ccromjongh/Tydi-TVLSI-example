@@ -10,7 +10,7 @@ class StudentFilterImpl extends StudentFilterInterface {
   // Fixme: Remove the following line if this impl. contains logic. If it just interconnects, remove this comment.
   input_int_parser_L4_00_instStream := DontCare
   // Fixme: Remove the following line if this impl. contains logic. If it just interconnects, remove this comment.
-  input_key_parser_L1_04_instStream := DontCare
+  input_key_parser_L2_04_instStream := DontCare
   // Fixme: Remove the following line if this impl. contains logic. If it just interconnects, remove this comment.
   input_string_parser_L1_00_instStream := DontCare
   // Fixme: Remove the following line if this impl. contains logic. If it just interconnects, remove this comment.
